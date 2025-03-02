@@ -60,5 +60,9 @@ rejected: The non-preferred response (undesirable AI behavior).
 ![Training](/images/performance.png)
 
 ## Task 3
+Pushed saved model on Hugging Face:
+https://huggingface.co/ToobiBabe/gpt_dpo/tree/main
+
 ## Task 4
-https://huggingface.co/ToobiBabe/gpt_dpo/tree/main 
+Developed a web application throgugh Flask and HTML. For styling CSS is used.
+![WEBAPP](/images/web app.png)
