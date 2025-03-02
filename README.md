@@ -35,6 +35,30 @@ rejected: The non-preferred response (undesirable AI behavior).
 - Loads Dahoas/full-hh-rlhf dataset.
 - Extracts prompt, chosen, and rejected fields for preference learning.
 - Configure Training Hyperparameters
+## 🎯 Hyperparameters Used for DPO Training
+
+| **Hyperparameter**                 | **Value**  | **Description** |
+|-------------------------------------|------------|----------------|
+| `learning_rate`                     | `5e-5`     | Standard learning rate for fine-tuning GPT models. |
+| `per_device_train_batch_size`       | `8`        | Number of samples processed per GPU. |
+| `per_device_eval_batch_size`        | `8`        | Batch size for evaluation. |
+| `gradient_accumulation_steps`       | `2`        | Accumulates gradients over multiple steps to simulate larger batches. |
+| `max_steps`                         | `1000`     | Total training steps before stopping. |
+| `num_train_epochs`                  | `3`        | Number of full dataset passes. |
+| `save_strategy`                     | `"epoch"`  | Saves the model at the end of each epoch. |
+| `evaluation_strategy`               | `"epoch"`  | Evaluates the model at the end of each epoch. |
+| `logging_steps`                     | `50`       | Logs training metrics every 50 steps. |
+| `fp16`                              | `True`     | Enables Mixed Precision for faster training and lower memory usage. |
+| `gradient_checkpointing`            | `True`     | Saves memory by recomputing gradients during backpropagation. |
+| `padding_value`                     | `tokenizer.pad_token_id` | Sets padding token for batch processing. |
+| `max_prompt_length`                 | `128`      | Limits input prompt length. |
+| `max_completion_length`             | `128`      | Limits response length. |
+| `beta`                              | `0.1`      | Regularization factor for DPO to balance learning. |
+| `report_to`                         | `"wandb"`  | Logs training metrics to Weights & Biases (wandb). |
+
+2) Training Performance
+![Training](/images/performance.png)
+
 ## Task 3
 ## Task 4
 https://huggingface.co/ToobiBabe/gpt_dpo/tree/main 
